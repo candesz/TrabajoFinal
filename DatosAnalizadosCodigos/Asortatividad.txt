@@ -1,0 +1,53 @@
+#%%
+##Ver los vecinos out de un nodo (del cual tenemos el grado in o out)
+A estos vecinos le podemos pedir su grado in o out
+
+
+##Ver los vecinos in de un nodo (del cual tenemos el grado in o out)
+A estos vecinos le podemos pedir su grado in o out
+#%%
+#Nodo con su in degree
+def NodoInGrado(Grafo):
+    Nodos=[] #lista con grado-nodo
+    for n in Grafo.nodes():
+        Nodos.append([Grafo.in_degree(n),n])
+    sorted(Nodos)
+    return Nodos
+#Nodo con su out degree
+def NodoOutGrado(Grafo):
+    Nodos=[] #lista con grado-nodo
+    for n in Grafo.nodes():
+        Nodos.append([Grafo.out_degree(n),n])
+    sorted(Nodos)
+    return Nodos
+
+#%%
+Dada una matriz de adyacencia M,
+M.indices da una lista de ¿?
+M[i].indices da los j vecinos out del nodo i.
+i y j son las posiciones de los nodos en la lista de nodos tal cual la arma nx
+#%%
+#Hagamos el que ve los vecinos out. Calculando en grado in de los vecinos. Partiendo del grado out
+def k_vec(Grafo):
+	Grado_GradoPromVec=[]
+	M=nx.adjacency_matrix(Grafo)
+	numnodo=0
+	for n in NodoOutGrado(Grafo):
+		Vecinos=M[numnodo].indices ##array con los nodos vecinos out de numnodo
+		Vecinos_label=[]
+		for i in Vecinos:
+			Vecinos_label.append(n[i][1])
+		K=Grafo.in_degree(Vecinos_label)
+		k_vecinos=[]
+        	for i in K:
+			k_vecinos.append(i[1])
+        	if len(K)!=0: #si el nodo tiene vecinos 
+			k_vecinos_promedio=sum(k_vecinos)/len(K)
+        	else:
+			k_vecinos_promedio=0 #si el nodo no tiene vecinos
+        	Grado_GradoPromVec.append([n[0],k_vecinos_promedio])
+		numnodo+=1
+
+
+
+  
