@@ -1,0 +1,22 @@
+Analisis estructural de las redes:
+
+Antes
+print(densidad,GradoMedio,Clustering)
+8.384277836464721e-06 2.210087253414264 0.01063705749422229
+
+Durante
+print(densidadDu,GradoMedioDu,ClusteringDu)
+6.557438888814961e-06 2.5936834760096477 0.013424770015169585
+
+Después
+print(densidadDe,GradoMedioDe,ClusteringDe)
+1.0902602697756558e-05 1.7419197356232632 0.00615801757524223
+---..---
+Densidad
+GradoMedio
+ClusteringMedio
+---..---
+Distribución de grado IN y OUT
+Asortatividades
+---..---
+Comunidades (fastgreedy)
